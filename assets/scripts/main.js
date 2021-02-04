@@ -1,10 +1,16 @@
 // main.js
 
-// Get elements
+// Get audio elements
 const volume_slider = document.getElementById("volume-slider");
 const volume_number = document.getElementById("volume-number");
 const audio = document.getElementById("horn-sound");
 const audio_img = document.getElementById("volume-image");
+
+// Get
+const radio_air_horn = document.getElementById("radio-air-horn");
+const radio_car_horn = document.getElementById("radio-car-horn");
+const radio_party_horn = document.getElementById("radio-party-horn");
+const sound_img = document.getElementById("sound-image");
 
 function initializeVolume() {
   function changeSlider() {
@@ -38,4 +44,20 @@ function initializeVolume() {
   volume_number.addEventListener("change", changeNumber);
 }
 
+function initializeSoundSelect() {
+  radio_air_horn.addEventListener("change", () => {
+    audio.src = "./assets/media/audio/air-horn.mp3";
+    sound_img.src = "./assets/media/images/air-horn.svg";
+  });
+  radio_car_horn.addEventListener("change", () => {
+    audio.src = "./assets/media/audio/car-horn.mp3";
+    sound_img.src = "./assets/media/images/car.svg";
+  });
+  radio_party_horn.addEventListener("change", () => {
+    audio.src = "./assets/media/audio/party-horn.mp3";
+    sound_img.src = "./assets/media/images/party-horn.svg";
+  });
+}
+
 window.addEventListener("load", initializeVolume);
+window.addEventListener("load", initializeSoundSelect);
